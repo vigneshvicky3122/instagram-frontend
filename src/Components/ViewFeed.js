@@ -236,7 +236,6 @@ function ViewFeed() {
     }
   }
   async function unFollow(id, index) {
-    console.log(index);
     let data = { followingTo: id };
     let update = [...IsUsers];
     let Index = IsUsers[index].Following.indexOf(data.followingTo);

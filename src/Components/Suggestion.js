@@ -11,14 +11,16 @@ function Suggestion({ Users }) {
   const [large, setLarge] = useState("sug-list-container-close");
   useEffect(() => {
     setIsUser(Users);
-    let ignored = IsUser.findIndex(
+    removeAuth();
+  }, [Users]);
+  let removeAuth = () => {
+    let ignored = IsUser.indexOf(
       (index) => index.username === window.localStorage.getItem("username")
     );
     var remove = [...IsUser];
     remove.splice(ignored, 1);
     setIsUsers(remove);
-  }, [Users]);
-
+  };
   async function Follow(id, index) {
     let data = { followingTo: id };
     let update = [...IsUsers];
