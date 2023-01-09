@@ -17,7 +17,7 @@ function Suggestion({ Users }) {
     var remove = [...IsUser];
     remove.splice(ignored, 1);
     setIsUsers(remove);
-  }, []);
+  }, [IsUsers]);
 
   async function Follow(id, index) {
     let data = { followingTo: id };
