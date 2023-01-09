@@ -14,7 +14,7 @@ function Suggestion({ Users }) {
     removeAuth();
   }, [Users]);
   let removeAuth = () => {
-    let ignored = IsUser.indexOf(
+    let ignored = IsUser.findIndex(
       (index) => index.username === window.localStorage.getItem("username")
     );
     var remove = [...IsUser];
