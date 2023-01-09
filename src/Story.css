@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Norican&display=swap");
+.story-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: black;
+}
+.story-nav {
+  min-width: 100%;
+  z-index: 1;
+  height: 3.7em;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.story-brand-name {
+  margin-left: 15px;
+  color: #ffff;
+  font-size: 2em;
+  font-family: "Norican", cursive;
+}
+.x-mark {
+  color: white !important;
+  margin-right: 30px;
+  font-size: 25px;
+}
+.story-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.story-images {
+  width: 150px;
+  height: 250px;
+  border-radius: 5px;
+  object-fit: cover;
+  background-position: center;
+}
+.story-images:hover {
+  width: 300px;
+  height: 80vh;
+  object-fit: cover;
+  background-position: center;
+}

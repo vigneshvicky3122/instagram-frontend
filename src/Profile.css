@@ -1,0 +1,200 @@
+.account-container {
+  background-color: #fafafa;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.top {
+  display: flex;
+  max-width: 50%;
+  margin: auto;
+}
+.secondary {
+  margin: auto;
+  max-width: 400px;
+}
+.profile-image {
+  margin: 70px 70px 70px 50px;
+  width: 120px;
+  height: 120px;
+  padding: 5px;
+  border: 1px;
+  object-fit: cover;
+  background-position: center;
+  background: linear-gradient(purple, red, yellow);
+  border-radius: 50%;
+}
+.profile-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.profile-action-head-follow {
+  width: 70px;
+  height: 20px;
+  cursor: pointer;
+  background: #008cff;
+  color: #fafafa;
+  font-weight: 600;
+  font-size: smaller;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+.profile-action-head-unfollow {
+  width: 70px;
+  height: 20px;
+  cursor: pointer;
+  background: #efefef;
+  color: #262626;
+  font-weight: 600;
+  font-size: smaller;
+  outline: 1.5px solid #dbdbdb;
+  border: 1.5px solid #dbdbdb;
+  border-radius: 3px;
+}
+.acc-settings {
+  width: 5%;
+  height: auto;
+  cursor: pointer;
+}
+.raw-details {
+  display: flex;
+  font-size: 15px;
+  column-gap: 20px;
+  text-align: center;
+}
+.username {
+  font-size: x-large;
+  margin-right: 20px;
+}
+.edit-btn {
+  background: transparent;
+  outline: none;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+}
+.bio {
+  text-align: start;
+  font-size: 15px;
+}
+
+.middle {
+  max-width: 50%;
+  margin: auto;
+  padding: auto;
+  height: 7em;
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+  align-items: center;
+  background-color: #fafafa;
+  overflow: hidden;
+  border-bottom: 2px solid #dbdbdb;
+}
+.highlight-grid {
+  display: grid;
+  text-align: center;
+  align-items: center;
+}
+.highlights-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  background-position: center;
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+}
+.highlight-plus {
+  font-size: 60px;
+}
+.highlights-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: #383838;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: lowercase;
+}
+.title {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.title:hover {
+  margin-top: -2px;
+  border-top: 2px solid black;
+  cursor: pointer;
+}
+.title:active {
+  opacity: 0.3;
+}
+.view-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.view-head {
+  width: 10%;
+  height: auto;
+  cursor: pointer;
+}
+.menu-title {
+  align-items: center;
+}
+.bottom {
+  max-width: 50%;
+  margin: auto;
+}
+.lower {
+  max-width: 50%;
+  margin: auto;
+  height: auto;
+  background: transparent;
+}
+.post-frame {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.post-images {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  background-position: center;
+}
+.post-images:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .bottom {
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .middle {
+    min-width: 50%;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .post-images {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    background-position: center;
+  }
+  .post-frame {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    column-gap: 10px;
+    row-gap: 10px;
+    /* overflow: hidden; */
+  }
+}
