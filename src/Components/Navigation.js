@@ -67,7 +67,7 @@ function Navigation({ Users }) {
         ) : null}
         <div className="elements">
           <div>
-            <a href="/instagram">
+            <a href="/home">
               <img
                 src="https://dza205f4gev3o.cloudfront.net/Assets/home.png"
                 alt=""

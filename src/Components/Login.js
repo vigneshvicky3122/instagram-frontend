@@ -33,7 +33,7 @@ function Login() {
         setColor("green");
         setMessages(request.data.message);
         setTimeout(() => {
-          navigate("/instagram");
+          navigate("/home");
         }, "3000");
       }
       if (request.data.statusCode === 401) {

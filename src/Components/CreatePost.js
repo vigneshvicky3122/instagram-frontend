@@ -25,7 +25,7 @@ function CreatePost() {
 
       if (request.data.statusCode === 200) {
         console.log(request.data.message);
-        navigate("/instagram");
+        navigate("/home");
       }
       if (request.data.statusCode === 404) {
         console.log(request.data.message);

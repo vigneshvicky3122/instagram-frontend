@@ -23,8 +23,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<Navigate to="/instagram" />} />
-          <Route path="/instagram" element={<Dashboard />} />
+          <Route path="*" element={<Navigate to="/accounts/login" />} />
+          <Route path="/home" element={<Dashboard />} />
           <Route path="post/:id" element={<ViewFeed />} />
           <Route path="stories/:id" element={<ViewStories />} />
           <Route path="explore" element={<Explore />} />
