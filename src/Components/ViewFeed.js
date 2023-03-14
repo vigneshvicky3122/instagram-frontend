@@ -280,7 +280,7 @@ function ViewFeed() {
 
       if (request.data.statusCode === 200) {
         console.log(request.data.message);
-        navigate("/instagram");
+        navigate("/home");
       }
       if (request.data.statusCode === 401) {
         console.log(request.data.message);
