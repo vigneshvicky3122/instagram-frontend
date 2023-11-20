@@ -47,7 +47,7 @@ function ViewFeed() {
     let data = {
       text: AddComment,
       commentedBy: window.localStorage.getItem("username"),
-      time: new Date.now(),
+      time: Date.now(),
     };
     let update = [...IsPost];
     update[i].Comments.push(data);

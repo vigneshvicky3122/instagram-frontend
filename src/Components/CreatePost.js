@@ -13,7 +13,7 @@ function CreatePost() {
   let navigate = useNavigate();
 
   let pushData = async () => {
-    let Data = { Image, Caption, Tags, Location, Time: new Date.now() };
+    let Data = { Image, Caption, Tags, Location, Time: Date.now() };
 
     try {
       let request = await axios.post(`${url}/post`, Data, {
