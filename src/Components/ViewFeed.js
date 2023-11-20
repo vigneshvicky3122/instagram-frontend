@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { url } from "../App";
 import axios from "axios";
+import moment from "moment";
 
 function ViewFeed() {
   let navigate = useNavigate();
@@ -465,7 +466,7 @@ function ViewFeed() {
                               </div>
                               <div className="post_comments-timings">
                                 <p className="timings">
-                                  {new Date(comment.time).getMinutes() + "m"}
+                                  {moment(comment.time).fromNow()}
                                 </p>
                                 <p className="reply_to">Reply</p>
                               </div>

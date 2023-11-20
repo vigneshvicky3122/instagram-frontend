@@ -8,13 +8,14 @@ import Story from "./Story";
 import Suggestion from "./Suggestion";
 
 function Dashboard() {
-  useEffect(() => {
-    getData();
-  }, []);
   let navigate = useNavigate();
   const [Users, setUsers] = useState([]);
   const [Stories, setStories] = useState([]);
   const [Post, setPost] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   async function getData() {
     try {

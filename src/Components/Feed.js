@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { url } from "../App";
 import axios from "axios";
+import moment from "moment";
 
 function Feed({ Post }) {
   let navigate = useNavigate();
@@ -173,41 +174,6 @@ function Feed({ Post }) {
     }
   }
 
-  // function GetTime(time) {
-  //   var countDownDate = new Date(time).getTime();
-
-  //   // Update the count down every 1 second
-  //   // var x = setInterval(function () {
-  //   // Get today's date and time
-  //   var now = new Date().getTime();
-
-  //   // Find the distance between now and the count down date
-  //   var distance = now - countDownDate;
-
-  //   // Time calculations for days, hours, minutes and seconds
-  //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //   var hours = Math.floor(
-  //     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //   );
-  //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  //   if (days > 1 < 28) {
-  //     return days + " DAYS AGO";
-  //   } else if (days > 28) {
-  //     return " MONTH AGO";
-  //   }
-  //   if (hours < 24 > 1) {
-  //     return hours + " HOURS AGO";
-  //   }
-  //   if (minutes < 60 > 1) {
-  //     return minutes + " MINUTES AGO";
-  //   }
-  //   if (seconds < 60 > 1) {
-  //     return seconds + " SECONDS AGO";
-  //   }
-  // }
-
   return (
     <>
       {IsPost &&
@@ -370,7 +336,7 @@ function Feed({ Post }) {
                     comment
                   </p>
                   <p className="post-timing">
-                    <strong>{e.Time}</strong>
+                    <strong>{moment(e.Time).fromNow()}</strong>
                   </p>
                 </div>
 

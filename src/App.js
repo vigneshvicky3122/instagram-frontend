@@ -16,7 +16,7 @@ import VerifyEmail from "./Components/VerifyEmail";
 import VerifyOtp from "./Components/VerifyOtp";
 import ViewFeed from "./Components/ViewFeed";
 import ViewStories from "./Components/ViewStories";
-export const url = "https://instagram-kmjv.onrender.com";
+export const url = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
   return (

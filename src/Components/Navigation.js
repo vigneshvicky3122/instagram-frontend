@@ -30,9 +30,12 @@ function Navigation({ Users }) {
             type="text"
             className="search-box"
             onClick={() => {
-              setList((previous) => !previous);
+              setList(true);
               setProfile(false);
               setActivity(false);
+            }}
+            onBlur={() => {
+              setList(false);
             }}
             onChange={handleChange}
             placeholder="Search"
@@ -198,10 +201,7 @@ function Navigation({ Users }) {
                 </a>
                 <a
                   onClick={() => {
-                    window.localStorage.removeItem("app-token");
-                    window.localStorage.removeItem("name");
-                    window.localStorage.removeItem("username");
-                    window.localStorage.removeItem("profile");
+                    window.localStorage.clear();
                   }}
                   href="/accounts/login"
                   className="line-acc"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { url } from "../App";
 import axios from "axios";
@@ -10,7 +10,28 @@ function SignUp() {
   const [Messages, setMessages] = useState("");
   const [ActiveResponse, setActiveResponse] = useState(false);
   const [isColor, setColor] = useState("red");
+  const [isData, setData] = useState([]);
+  const [Disabled, setDisabled] = useState(false);
+  useEffect(() => {
+    getData();
+  }, []);
+  async function getData() {
+    try {
+      let request = await axios.get(`${url}/username`, {});
 
+      if (request.data.statusCode === 200) {
+        setData(request.data.user);
+      }
+      if (request.data.statusCode === 401) {
+        console.log(request.data.message);
+      }
+      if (request.data.statusCode === 500) {
+        console.log(request.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
   let handleSubmit = async (data) => {
     try {
       let request = await axios.post(`${url}/signup`, data);
@@ -56,7 +77,23 @@ function SignUp() {
       handleSubmit(values);
     },
   });
-
+  const checkUsername = (params) => {
+    let arr = [];
+    isData.forEach((x) => {
+      arr.push(x.username);
+    });
+    if (arr.includes(params)) {
+      setDisabled(true);
+      setActiveResponse(true);
+      setColor("red");
+      setMessages(
+        "This username was already exist, Enter the Different Username"
+      );
+    } else {
+      setDisabled(false);
+      setActiveResponse(false);
+    }
+  };
   return (
     <>
       <div className="signup-form">
@@ -131,7 +168,7 @@ function SignUp() {
                 placeholder="Username"
                 className="form-control"
                 onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
+                onBlur={() => checkUsername(formik.values.username)}
                 value={formik.values.username}
               />
               {formik.touched.username && formik.errors.username ? (
@@ -212,13 +249,14 @@ function SignUp() {
               .
             </p>
             <div className="form-group">
-              <button type="Submit" className="signup-btn">
+              <button type="Submit" className="signup-btn" disabled={Disabled}>
                 Sign up
               </button>
             </div>
           </form>
         </div>
       </div>
+
       <div className="signup-login-container">
         <p className="login-content">
           Have an account{" "}

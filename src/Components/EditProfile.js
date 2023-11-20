@@ -11,6 +11,11 @@ function EditProfile() {
   let [ProfilePic, setProfilePic] = useState("");
   let [Mobile, setMobile] = useState("");
   let [Bio, setBio] = useState("");
+  const [Messages, setMessages] = useState("");
+  const [ActiveResponse, setActiveResponse] = useState(false);
+  const [isColor, setColor] = useState("red");
+  const [isData, setData] = useState([]);
+  const [Disabled, setDisabled] = useState(false);
   let navigate = useNavigate();
   useEffect(() => {
     editProfile();
@@ -33,7 +38,7 @@ function EditProfile() {
       setProfilePic(request.data.user[0].profilePic);
       setMobile(request.data.user[0].mobile);
       setBio(request.data.user[0].bio);
-
+      getData();
       if (request.data.statusCode === 400) {
         console.log(request.data.message);
         navigate("/accounts/login");
@@ -77,7 +82,40 @@ function EditProfile() {
       console.log(error);
     }
   };
+  async function getData() {
+    try {
+      let request = await axios.get(`${url}/username`, {});
 
+      if (request.data.statusCode === 200) {
+        setData(request.data.user);
+      }
+      if (request.data.statusCode === 401) {
+        console.log(request.data.message);
+      }
+      if (request.data.statusCode === 500) {
+        console.log(request.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  const checkUsername = (params) => {
+    let arr = [];
+    isData.forEach((x) => {
+      arr.push(x.username);
+    });
+    if (arr.includes(params)) {
+      setDisabled(true);
+      setActiveResponse(true);
+      setColor("red");
+      setMessages(
+        "This username was already exist, Enter the Different Username"
+      );
+    } else {
+      setDisabled(false);
+      setActiveResponse(false);
+    }
+  };
   return (
     <>
       <div className="post">
@@ -124,6 +162,7 @@ function EditProfile() {
             className="tag"
             placeholder="Username"
             onChange={(event) => setUsername(event.target.value)}
+            onBlur={() => checkUsername(Username)}
             value={Username}
           />
           <input
@@ -139,7 +178,15 @@ function EditProfile() {
             onChange={(event) => setBio(event.target.value)}
             value={Bio}
           />
-          <button className="share" type="button" onClick={pushData}>
+          {ActiveResponse ? (
+            <div style={{ color: isColor }}>{Messages}</div>
+          ) : null}
+          <button
+            className="share"
+            type="button"
+            disabled={Disabled}
+            onClick={pushData}
+          >
             Update
           </button>
         </div>
