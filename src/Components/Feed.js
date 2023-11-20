@@ -18,7 +18,7 @@ function Feed({ Post }) {
     let data = {
       text: AddComment,
       commentedBy: window.localStorage.getItem("username"),
-      time: Date.now(),
+      time: new Date.now(),
     };
     let update = [...IsPost];
     update[i].Comments.push(data);
